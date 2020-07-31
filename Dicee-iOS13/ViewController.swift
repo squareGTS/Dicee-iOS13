@@ -10,11 +10,45 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+    // IBOutlet allows me to reference a UI element
+    @IBOutlet weak var diceImageViewLeft: UIImageView!
+    @IBOutlet weak var diceImageViewRight: UIImageView!
+    
+    var leftDiceNumber = 1
+    var rightDiceNumber = 5
+    
+   /* override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+        // WHO           .WHAT  = VALUE
+        diceImageViewLeft.image = #imageLiteral(resourceName: "DiceSix")
+        diceImageViewLeft.alpha = 0.5
+        diceImageViewRight.image = #imageLiteral(resourceName: "DiceTwo")
+    }*/
+
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        //var leftDiceNumber = 1
+       /* print("Button got tapped")
+        diceImageViewRight.image = #imageLiteral(resourceName: "DiceFour")
+        diceImageViewLeft.image = #imageLiteral(resourceName: "DiceFour")*/
+        
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"),#imageLiteral(resourceName: "DiceTwo"),#imageLiteral(resourceName: "DiceThree"),#imageLiteral(resourceName: "DiceFour"),#imageLiteral(resourceName: "DiceFive"),#imageLiteral(resourceName: "DiceSix")]
+        
+        //print("leftDiceNumber at the begining = \(leftDiceNumber)")
+        diceImageViewLeft.image = diceArray.randomElement()
+        
+        //leftDiceNumber += 1
+        //print("leftDiceNumber at the end = \(leftDiceNumber)")
+        
+        
+        //print("rightDiceNumber at the begining = \(rightDiceNumber)")
+        diceImageViewRight.image = diceArray[Int.random(in: 0...5)]
+        //rightDiceNumber -= 1
+        //print("rightDiceNumber at the end = \(rightDiceNumber)")
+        
+        
     }
-
-
+    
 }
 
